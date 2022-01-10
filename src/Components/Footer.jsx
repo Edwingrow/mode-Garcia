@@ -1,28 +1,17 @@
 import React from 'react';
 import { Fragment } from 'react/cjs/react.production.min';
 
-//class footer extends React.Component{
-//   render(){
-//        const customStyle = {
-//            backgroundColor: '#red',
-//           padding: '10px',
-//            fontFamily: 'Arial',
-//            color: '#white',
-//        }
-//        return(
-//            <div style={customStyle}> Hola </div>
-//        
-//        )
-//           
-//    }
-// }
 const Footer = (props) => {
     const customStyle = {
-        backgroundColor: 'red',
-        padding: '10px',
-        fontFamily: 'Arial',
+        backgroundColor: '#2a5678',
         color: 'white',
-        fontSize: '22px',
+        marginTop: '40px',
+        height: '100px',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
     }
     return (<Fragment><div style={customStyle}>{props.mensaje}</div></Fragment>)
 
