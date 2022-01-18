@@ -1,11 +1,11 @@
 import React from 'react';
-import Footer from './Components/Footer';
-import NavBar from './Components/NavBar';
+import Footer from './components/Footer';
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
 function App() {
   return ( /* Titulo del proyecto*/
     <div className="App">
-      <NavBar/>
-
+      <NavBar count="0" />
       <Footer mensaje="soy el footer"/>
     </div>
   );

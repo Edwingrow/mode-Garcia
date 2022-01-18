@@ -1,27 +1,37 @@
-// usar rafce y espacio para crear el componente 
-import React from 'react'
 
+import "../index.css"
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
+import ItemListContainer from './ItemListContainer'
 const NavBar = () => {
     return (
-        <>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Mode</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                            </li>
-                            <li class="nav-item">
-                                
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+        
+        <><>
+            <Navbar bg="light" expand="lg bg-light fixed-top">
+                <Container>
+                    <Navbar.Brand href="#home">Mode</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav>
+                            <NavDropdown title="Productos" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Remeras</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Zapatos</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Jeans</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        <Nav>
+                            <Nav.Link href="#home">About</Nav.Link>
+                            <Nav.Link href="#link">Contacto</Nav.Link>
+                        </Nav>
+                        <Nav className="ms-auto">
+                            <Nav.Link href="#home"><i className="fas fa-cart-plus"></i></Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </>
+        
+        <ItemListContainer />
+       </>
     )
 }
 
