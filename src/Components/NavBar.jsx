@@ -1,7 +1,7 @@
 
 import "../index.css"
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
-import ItemListContainer from './ItemListContainer'
+import CartWidget from "./CartWidget"
 const NavBar = () => {
     return (
         
@@ -23,15 +23,14 @@ const NavBar = () => {
                             <Nav.Link href="#link">Contacto</Nav.Link>
                         </Nav>
                         <Nav className="ms-auto">
-                            <Nav.Link href="#home"><i className="fas fa-cart-plus"></i></Nav.Link>
+                            <Nav.Link href="#home"><CartWidget/></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            
         </>
-        
-        <ItemListContainer />
-       </>
+        </>
     )
 }
 

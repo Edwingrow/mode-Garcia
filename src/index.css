@@ -14,7 +14,9 @@
   align-items: center;
 }
 .fas{
-  font-size: 30px;
+  font-size: 19px;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
  
 }
 .navbar-collapse {

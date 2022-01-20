@@ -5,7 +5,8 @@ import NavBar from './components/NavBar';
 function App() {
   return ( /* Titulo del proyecto*/
     <div className="App">
-      <NavBar count="0" />
+      <NavBar/>
+      <ItemListContainer/>
       <Footer mensaje="soy el footer"/>
     </div>
   );
