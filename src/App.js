@@ -6,7 +6,7 @@ function App() {
   return ( /* Titulo del proyecto*/
     <div className="App">
       <NavBar/>
-      <ItemListContainer/>
+       <ItemListContainer/> 
       <Footer mensaje="soy el footer"/>
     </div>
   );
