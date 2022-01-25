@@ -27,13 +27,9 @@ const Item = ({ productos }) => {
                                     <Button variant="primary">Ver detalle del producto</Button>
                                 </Card.Body>
                             </Card>
-                        )
-                    })
-                }
-                )
-            </div>
-        </>
-    )
+                        )})})
+            </div> 
+            </> 
+        )
 };
-
 export default Item;
