@@ -1,6 +1,8 @@
-
-.navbar{
-  background: #efece5;
+body{
+  background: #F2F2F2;
+}
+/*Navbar*/
+.navbar {
   width: 100%;
   height: 50px;
   display: flex;
@@ -10,38 +12,73 @@
   left: 0;
   z-index: 99;
 }
-.navbar-nav{
+.navbar-nav {
   align-items: center;
 }
-.fas{
+
+.fas {
   font-size: 19px;
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
- 
 }
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
-  background: #fff;
-  
 }
 .dropdown-menu {
- border: none;
- align-items: center;
-min-width: 0;
+  border: none;
+  align-items: center;
+  min-width: 0;
 }
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+/*Navbar-------------------------------------------------------------------------------*/
 
-.card{
+
+/*items del card*/
+.card {
   margin-top: 5%;
   margin-right: auto;
-  
+  align-items: center;
 }
-.btn{
+.btn {
   margin: 1px;
+  color: black;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
 }
-.container{
+
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+/*items del card ------------------------------------------------------------------------------- */

@@ -1,14 +1,17 @@
 
 import "../index.css"
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Container, Image } from 'react-bootstrap'
 import CartWidget from "./CartWidget"
+import logo from "../assets/images/mode-logo.png"
 const NavBar = () => {
     return (
         
         <><>
             <Navbar bg="light" expand="lg bg-light fixed-top">
                 <Container>
-                    <Navbar.Brand href="#home">Mode</Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <Image height={25} src={logo} />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav>

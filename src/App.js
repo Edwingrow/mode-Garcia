@@ -1,15 +1,14 @@
-import React from 'react';
-import Footer from './components/Footer';
-import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar';
-import Item from './components/Item';
-function App() {
-
-  return ( /* Titulo del proyecto*/
+import React, { useEffect } from "react";
+import Espacio from "./components/Espacio";
+import NavBar from "./components/NavBar";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+function App({product}) {
+  return (
+    /* Titulo del proyecto*/
     <div className="App">
-      <NavBar/>
-       <ItemListContainer/>
-      <Footer mensaje="soy el footer"/>
+      <NavBar />
+      <Espacio />
+      <ItemDetailContainer product={product} />
     </div>
   );
 }

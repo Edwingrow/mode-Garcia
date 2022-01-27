@@ -1,11 +1,10 @@
 import React from 'react';
 import { Fragment } from 'react/cjs/react.production.min';
 
-const Footer = (props) => {
+const Espacio = () => {
     const customStyle = {
-        backgroundColor: '#2a5678',
+        backgroundColor: 'white',
         color: 'white',
-        marginTop: '40px',
         height: '100px',
         width: '100%',
         display: 'flex',
@@ -13,7 +12,7 @@ const Footer = (props) => {
         justifyContent: 'space-around',
         alignItems: 'center',
     }
-    return (<Fragment><div style={customStyle}>{props.mensaje}</div></Fragment>)
+    return (<Fragment><div style={customStyle}></div></Fragment>)
 
 }
-export default Footer;
+export default Espacio;
