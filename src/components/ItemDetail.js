@@ -4,7 +4,6 @@ const ItemDetail = ({ product }) => {
   const { id, title, price, thumbnail, available_quantity, permalink, attributes } = product;
   const [cleanAttributes, setCleanAttributes] = useState([]);
   const whiteListAttributes = ["Marca", "Modelo", "Condición del ítem", "Peso"]
-  const [item, setItem] = useState();
   const [contador, setContador] = React.useState(1)
   useEffect(() => {
     let newAttributes = attributes.filter(attribute => whiteListAttributes.includes(attribute.name));
@@ -40,7 +39,7 @@ const ItemDetail = ({ product }) => {
       </ListGroup>
     </Card.Body>
     <Button variant="outline-success" style={{with:'20%'}} disabled={contador >= available_quantity} onClick={() => aumentar()}>+</Button> 
-    <span>{contador}</span>
+    {contador}
     <Button variant="outline-danger" disabled={contador === 0} onClick={() => disminuir()}>-</Button>
     <Button variant="primary" >Añadir al carrito</Button>
   </Card>
