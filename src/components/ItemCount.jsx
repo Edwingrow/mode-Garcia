@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button } from "react-bootstrap";
-
+import ItemDetail from './ItemDetail';
 const Item = () => {
     const inicial = 1;
     const [contador, setContador] = React.useState(inicial)
@@ -24,11 +24,8 @@ const Item = () => {
 
     return (
             <>
-            <div className="container">
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://picsum.photos/200" />
                 <Card.Body>
-                    <Card.Title>title </Card.Title>
                     <Card.Text>
 
                         <Button variant="outline-success" disabled={contador >= stockActual} onClick={() => aumentar()}>+</Button> {contador} <Button variant="outline-danger" disabled={contador === 0} onClick={() => disminuir()}>-</Button>
@@ -37,7 +34,6 @@ const Item = () => {
                     <Button variant="primary" onClick={() => añadir()}>Añadir</Button>
                 </Card.Body>
             </Card>
-            </div>
            </>
     )
 };

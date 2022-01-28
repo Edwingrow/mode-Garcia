@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, ListGroup } from "react-bootstrap";
+import ItemCount from './ItemCount';
 const ItemDetail = ({ product }) => {
   const { id, title, price, thumbnail, available_quantity, permalink, attributes } = product;
   const [cleanAttributes, setCleanAttributes] = useState([]);
@@ -10,10 +11,6 @@ const ItemDetail = ({ product }) => {
     setCleanAttributes(newAttributes);
   }, [attributes]);
 
-  useEffect(() => {
-    setItem(product);
-    console.log(product);
-  }, [])
 
   const aumentar = () => {
     setContador(contador + 1)
@@ -38,10 +35,7 @@ const ItemDetail = ({ product }) => {
         })}
       </ListGroup>
     </Card.Body>
-    <Button variant="outline-success" style={{with:'20%'}} disabled={contador >= available_quantity} onClick={() => aumentar()}>+</Button> 
-    {contador}
-    <Button variant="outline-danger" disabled={contador === 0} onClick={() => disminuir()}>-</Button>
-    <Button variant="primary" >Añadir al carrito</Button>
+    <ItemCount/>
   </Card>
 
   )
