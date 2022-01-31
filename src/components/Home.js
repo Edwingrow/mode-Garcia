@@ -20,7 +20,7 @@ const Home = () => {
         }, 3000)
       }
     })
-    return () => mounted = false
+    return () => (mounted = false)
   }, [])
   return (
     <div>
