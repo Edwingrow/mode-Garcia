@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
 import { Container } from 'react-bootstrap'
 import { getDescription, getProduct } from '../services/products'
-import SearchWidget from './SearchWidget'
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null)
@@ -34,7 +33,6 @@ const ItemDetailContainer = () => {
   return (
       <div className='item-detail-container'>
         {product ? <ItemDetail product={product} /> : null}
-        {product ? <SearchWidget product={product} /> : null}
       </div>
   )
 }

@@ -1,11 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
 
 import '../index.css'
-import { Navbar, Nav, NavDropdown, Container, Image } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Container, Image, Form, InputGroup, FormControl } from 'react-bootstrap'
+import { Search } from 'react-bootstrap-icons'
 import CartWidget from './CartWidget'
 import logo from '../assets/images/mode-logo.png'
 import { Link } from 'react-router-dom'
-import Search from './SearchWidget'
 const NavBar = () => {
   return (
 
@@ -29,7 +29,12 @@ const NavBar = () => {
                             <Nav.Link href="#home">Nosotros</Nav.Link>
                             <Nav.Link href="#link">Contacto</Nav.Link>
                         </Nav>
-                        <Search/>
+                        <Form style={{ position: 'relative' }} className="d-flex ms-auto" >
+                            <InputGroup>
+                                <InputGroup.Text><Search /></InputGroup.Text>
+                                <FormControl id="inlineFormInputGroupUsername" placeholder="Buscar" />
+                            </InputGroup>
+                        </Form>
                         <Nav >
                             <Nav.Link href="#home"><CartWidget /></Nav.Link>
                         </Nav>
