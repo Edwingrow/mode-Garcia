@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
-import Espacio from "./components/Espacio";
-import NavBar from "./components/NavBar";
-import ItemDetailContainer from "./components/ItemDetailContainer";
-function App({product}) {
+import React from 'react'
+import Layout from './components/Layout'
+import Home from './components/Home'
+import NoPage from './components/NoPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ItemDetailContainer from './components/ItemDetailContainer'
+
+function App () {
   return (
-    /* Titulo del proyecto*/
-    <div className="App">
-      <NavBar />
-      <Espacio />
-      <ItemDetailContainer product={product} />
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />} >
+        <Route index element={<Home />} />
+        <Route path="/productos/:id" element={<ItemDetailContainer />} />
+        <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

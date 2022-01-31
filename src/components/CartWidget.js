@@ -1,5 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
 const CartWidget = () => {
-    return(<div>
+  return (<div>
             <i className="fas fa-shopping-cart">0</i>
     </div>)
 }

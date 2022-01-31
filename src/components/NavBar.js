@@ -1,17 +1,21 @@
+/* eslint-disable react/react-in-jsx-scope */
 
-import "../index.css"
+import '../index.css'
 import { Navbar, Nav, NavDropdown, Container, Image } from 'react-bootstrap'
-import CartWidget from "./CartWidget"
-import logo from "../assets/images/mode-logo.png"
+import CartWidget from './CartWidget'
+import logo from '../assets/images/mode-logo.png'
+import { Link } from 'react-router-dom'
+import Search from './SearchWidget'
 const NavBar = () => {
-    return (
-        
+  return (
+
         <><>
             <Navbar bg="light" expand="lg bg-light fixed-top">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand as={Link} to="/">
                         <Image height={25} src={logo} />
                     </Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav>
@@ -22,19 +26,20 @@ const NavBar = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#home">About</Nav.Link>
+                            <Nav.Link href="#home">Nosotros</Nav.Link>
                             <Nav.Link href="#link">Contacto</Nav.Link>
                         </Nav>
-                        <Nav className="ms-auto">
-                            <Nav.Link href="#home"><CartWidget/></Nav.Link>
+                        <Search/>
+                        <Nav >
+                            <Nav.Link href="#home"><CartWidget /></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
+
         </>
         </>
-    )
+  )
 }
 
 export default NavBar
