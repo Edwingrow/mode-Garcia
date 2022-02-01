@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 const ItemList = ({ products }) => {
   return (
     <Container>{
-      products.map((productos) => (
+      products.slice(0, 6).map((productos) => (
         <Item key={productos.id} productos={productos} />
 
       ))

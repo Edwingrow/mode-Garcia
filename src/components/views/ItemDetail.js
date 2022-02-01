@@ -1,7 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
 import { Breadcrumb, Button, Card, Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'

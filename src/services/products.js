@@ -12,3 +12,12 @@ export const getDescription = async (id) => {
   return await fetch(`https://api.mercadolibre.com/items/${id}/description`)
     .then(response => response.json())
 }
+
+export const getCategories = async (site) => {
+  const data = await fetch(`https://api.mercadolibre.com/sites/${site}/categories`)
+  return await data.json()
+}
+export const getCategory = async (category) => {
+  const data = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${category}`)
+  return await data.json()
+}

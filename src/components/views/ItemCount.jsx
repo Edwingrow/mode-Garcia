@@ -19,9 +19,7 @@ const ItemConunt = ({ available_quantity }) => {
             <Card style={{ width: '18rem', border: 'none' }}>
                 <Card.Body>
                     <Card.Text>
-                        <Button variant="outline-success" disabled={contador >= available_quantity} onClick={() => aumentar()}>+</Button>
-                        <span>{contador}</span>
-                        <Button variant="outline-danger" disabled={contador === 0} onClick={() => disminuir()}>-</Button>
+                        <Button variant="primary" disabled={contador >= available_quantity} onClick={() => aumentar()}>+</Button>  {contador}  <Button variant="primary" disabled={contador === 0} onClick={() => disminuir()}>-</Button>
                     </Card.Text>
                     <Card.Text>
                         <small className="text-muted">Disponible: {available_quantity}</small>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, InputGroup, FormControl } from 'react-bootstrap'
-const Search = () => {
+import { Search } from 'react-bootstrap-icons'
+const SearchWidget = () => {
   return (
     <Form style={{ position: 'relative' }} className="d-flex ms-auto" >
     <InputGroup>
@@ -11,4 +12,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default SearchWidget
