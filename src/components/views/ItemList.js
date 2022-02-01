@@ -4,11 +4,11 @@ import Item from './Item'
 import { Container } from 'react-bootstrap'
 const ItemList = ({ products }) => {
   return (
-    <Container>{
-      products.slice(0, 6).map((productos) => (
-        <Item key={productos.id} productos={productos} />
-
-      ))
+    <Container>
+      {
+        products.slice(0, 8).map((productos) => {
+          return <Item productos={productos} key={productos.id} />
+        })
     }
     </Container>
   )

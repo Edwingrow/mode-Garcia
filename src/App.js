@@ -14,7 +14,6 @@ function App () {
         <Route path="/productos/:id" element={<ItemDetailContainer />} />
         <Route path="/category/:id" element={<Category />} />   
         <Route path="*" element={<NoPage />} />
-        <Route path="/categories"/>
         </Route>
       </Routes>
     </BrowserRouter>

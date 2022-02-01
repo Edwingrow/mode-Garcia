@@ -12,7 +12,7 @@ const Home = () => {
     let mounted = true
     setLoading(true)
 
-    getProducts('celulares').then((item) => {
+    getProducts('razer').then((item) => {
       if (mounted) {
         setProductos(item.results)
         setTimeout(() => {

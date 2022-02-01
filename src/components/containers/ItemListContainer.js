@@ -4,7 +4,7 @@ import ItemList from '../views/ItemList'
 
 const ItemListContainer = ({ products }) => {
   return <>
-    <ItemList products={products} />
+<ItemList products={products} />
   </>
 }
 
