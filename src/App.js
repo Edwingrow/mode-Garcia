@@ -5,6 +5,7 @@ import NoPage from './components/NoPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ItemDetailContainer from './components/containers/ItemDetailContainer'
 import Category from './components/Category'
+import CartWidget from './components/views/CartWidget'
 function App () {
   return (
     <BrowserRouter>
@@ -12,7 +13,8 @@ function App () {
         <Route path="/" element={<Layout />} >
         <Route index element={<Home />} />
         <Route path="/productos/:id" element={<ItemDetailContainer />} />
-        <Route path="/category/:id" element={<Category />} />   
+        <Route path="/category/:id" element={<Category />} /> 
+        <Route path="/cart/:id" element={<CartWidget/>} />  
         <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

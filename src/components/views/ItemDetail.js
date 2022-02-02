@@ -1,11 +1,15 @@
 import { Breadcrumb, Button, Card, Col, Container, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ product }) => {
   const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity } = product
   const [itemsQty, setItemsQty] = useState(0)
+  const [items, setItems] = useState([])
+  const addCart = () => {
+    console.log(`Agregando datos de ${title} al carrito`)
+  }
 
   return (
         <Container>
@@ -34,21 +38,21 @@ const ItemDetail = ({ product }) => {
                                     <Col className="product-gallery">
                                         <Col className="product-gallery-thumbnails">
                                             <ol className="thumbnails-list list-unstyled">
-                                                {pictures.slice(0, 6).map(picture => { return (<li> <img src={picture.secure_url} alt="" /></li>) })}
+                                                {pictures.slice(0, 6).map(picture => { return (<li key={picture.id}> <img src={picture.secure_url} alt="" /></li>) })}
                                             </ol>
                                         </Col>
                                         <Col xs={10} className="product-gallery-featured">
                                             {pictures.length > 0 ? <img src={pictures[0].secure_url} alt="" /> : null}
                                         </Col>
                                     </Col>
-                                    <Col classNa
+                                    <Col className
                                     me="product-seller-recommended">
                                         <Col className="product-description mb-5" style={{ textAlign: 'left' }}>
                                             <h5 className="mt-3 mb-4">Lo que tenés que saber de este producto</h5>
                                             <dl className="row mb-5">
-                                                {attributes.slice(0, 8).map(attribute => {
+                                                {attributes.slice(0, 8).map((attribute, index) => {
                                                   return (<>
-                                                    <dd className="col-sm-8">{attribute.name}</dd>
+                                                    <dd className="col-sm-8" key={index}>{attribute.name}</dd>
                                                 <dt className="col-sm-4">{attribute.value_name}</dt>
                                                 </>)
                                                 })}
@@ -69,7 +73,7 @@ const ItemDetail = ({ product }) => {
                                     <div className="mb-3">
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
                                     </div>
-                                    <Button variant="primary">Agregar al carrito</Button>
+                                    <Button variant="primary" onClick={()=> addCart()}>Agregar al carrito</Button>
                                 </Col>
                             </Row>
 

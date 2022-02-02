@@ -2,7 +2,7 @@
 
 import '../index.css'
 import { Navbar, Nav, NavDropdown, Container, Image } from 'react-bootstrap'
-import CartWidget from './CartWidget'
+import CartWidget from './views/CartWidget'
 import logo from '../assets/images/mode-logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import SearchWidget from './SearchWidget'
