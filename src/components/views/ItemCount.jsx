@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
-const ItemConunt = ({ available_quantity }) => {
+const ItemCount = ({ available_quantity }) => {
   const inicial = 1
   const [contador, setContador] = useState(inicial)
   const aumentar = () => {
@@ -30,4 +30,4 @@ const ItemConunt = ({ available_quantity }) => {
   )
 }
 
-export default ItemConunt
+export default ItemCount
