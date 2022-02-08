@@ -1,16 +1,13 @@
 import { Breadcrumb, Button, Card, Col, Container, Row } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import ItemCount from './ItemCount'
+import {CartContext} from '../../context/CartContext'
 
 const ItemDetail = ({ product }) => {
+    const { addItem } = useContext(CartContext);
   const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity } = product
   const [itemsQty, setItemsQty] = useState(0)
-  const [items, setItems] = useState([])
-  const addCart = () => {
-    console.log(`Agregando datos de ${title} al carrito`)
-  }
-
   return (
         <Container>
             <Row>
@@ -73,7 +70,7 @@ const ItemDetail = ({ product }) => {
                                     <div className="mb-3">
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
                                     </div>
-                                    <Button variant="primary" onClick={()=> addCart()}>Agregar al carrito</Button>
+                                    <Button onClick={() => addItem(product, itemsQty)} variant="primary">Agregar al carrito</Button>
                                 </Col>
                             </Row>
 

@@ -1,7 +1,11 @@
-/* eslint-disable react/react-in-jsx-scope */
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
 const CartWidget = () => {
+  const { items } = useContext(CartContext);
+    
   return (<div>
-            <i className="fas fa-shopping-cart">0</i>
+            <i className="fas fa-shopping-cart">{items.length}</i>
     </div>)
 }
 
