@@ -1,8 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable camelcase */
-import React, { useState } from 'react'
+import React, { useState, useContext  } from 'react'
 import { Card, Button } from 'react-bootstrap'
-const ItemCount = ({ available_quantity }) => {
+import {CartContext} from '../../context/CartContext'
+
+
+const ItemCount = ({ available_quantity}) => {
+  const { addItem } = useContext(CartContext);
   const inicial = 1
   const [contador, setContador] = useState(inicial)
   const aumentar = () => {
@@ -19,11 +21,9 @@ const ItemCount = ({ available_quantity }) => {
             <Card style={{ width: '18rem', border: 'none' }}>
                 <Card.Body>
                     <Card.Text>
-                        <Button variant="primary" disabled={contador >= available_quantity} onClick={() => aumentar()}>+</Button>  {contador}  <Button variant="primary" disabled={contador === 1} onClick={() => disminuir()}>-</Button>
-                    </Card.Text>
-                    <Card.Text>
                         <small className="text-muted">Disponible: {available_quantity}</small>
                     </Card.Text>
+                    <Button onClick={() => addItem(contador)} variant="primary">Agregar al carrito</Button>
                 </Card.Body>
             </Card>
            </>

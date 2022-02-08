@@ -1,11 +1,10 @@
 import { Breadcrumb, Button, Card, Col, Container, Row } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { useState, useContext } from 'react'
+import { useState} from 'react'
 import ItemCount from './ItemCount'
-import {CartContext} from '../../context/CartContext'
 
 const ItemDetail = ({ product }) => {
-    const { addItem } = useContext(CartContext);
+
   const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity } = product
   const [itemsQty, setItemsQty] = useState(0)
   return (
@@ -66,11 +65,10 @@ const ItemDetail = ({ product }) => {
                                     <p className="text-success"><i className="fa fa-credit-card"></i> 12x or  5x $ 5.00</p>
                                     <p className="mb-0"><i className="fa fa-truck"></i> Tipo de Garantia</p>
                                     <div className="text-muted mb-4"><small>{warranty}</small></div>
-                                    <label htmlFor="quant">Cantidad</label>
                                     <div className="mb-3">
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
                                     </div>
-                                    <Button onClick={() => addItem(product, itemsQty)} variant="primary">Agregar al carrito</Button>
+                                    
                                 </Col>
                             </Row>
 
