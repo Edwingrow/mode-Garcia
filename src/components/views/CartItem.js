@@ -1,10 +1,13 @@
 import React from 'react'
-const CartItem = ({ item }) => {
-    const {title, price, thumbnail,qty} = item
+const CartItem = ({ item, deleteCartById}) => {
+    const {id, title, price, thumbnail,qty} = item
 
     
     return (
         <article className="cart-item-card">
+            <div className="cart-item__delete" onClick={()=>deleteCartById(id)}>
+            X
+            </div>
             <div className="cart-item__img">
                 <img src={thumbnail} />
             </div>

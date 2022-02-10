@@ -5,7 +5,7 @@ import {Button } from 'react-bootstrap'
 const CartListItem = () => {
 
     const cartContext = useContext(CartContext);
-    const { items, deleteCart } = cartContext;
+    const { items, deleteCart, deleteCartById } = cartContext;
 
     return (
         <div className="list-cart-container">
@@ -13,6 +13,7 @@ const CartListItem = () => {
                 items ? (items.map(item => {
                     return (<CartItem key={item.id}
                         item={item}
+                        deleteCartById={deleteCartById}
                     />)
 
                 }))

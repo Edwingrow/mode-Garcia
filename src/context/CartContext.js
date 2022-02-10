@@ -23,12 +23,20 @@ export const  CartProvider = ({ children }) => {
         }
     }
 
+    const deleteCartById = ( id ) => {
+        const newItems = [...items];
+        let index = newItems.findIndex(it => it.id === id);
+        
+        newItems.splice( index, 1 );
+
+        setItems([...newItems]);
+    }
 
     const deleteCart = () => {
         setItems([]);
     }
     return (
-        <CartContext.Provider value={{ items, cartItems, addItem, deleteCart}}>
+        <CartContext.Provider value={{ items, cartItems, addItem, deleteCart,deleteCartById}}>
             {children}
         </CartContext.Provider>
     )

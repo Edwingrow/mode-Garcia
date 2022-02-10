@@ -180,6 +180,18 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+.cart-item__delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
 /*Footer------------------------------------------------------------------------------------------------------*/
 .footer {
   margin-top: 2.5rem;

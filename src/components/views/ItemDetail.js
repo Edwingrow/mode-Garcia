@@ -6,7 +6,7 @@ import {CartContext} from '../../context/CartContext'
 const ItemDetail = ({ product }) => {
   const { addItem } = useContext(CartContext);
   const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity } = product
-  const [itemsQty, setItemsQty] = useState(0)
+  const [itemsQty, setItemsQty] = useState(1)
   return (
         <Container>
             <Row>
