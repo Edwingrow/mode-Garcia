@@ -1,33 +1,29 @@
-import React, { useState, useContext  } from 'react'
-import { Card, Button } from 'react-bootstrap'
-import {CartContext} from '../../context/CartContext'
+import { Button } from "react-bootstrap"
 
+const ItemCount = ({ itemsQty, available_quantity, setItemsQty}) => {
 
-const ItemCount = ({ available_quantity}) => {
-  const { addItem } = useContext(CartContext);
-  const inicial = 1
-  const [contador, setContador] = useState(inicial)
-  const aumentar = () => {
-    setContador(contador + 1)
-  }
-  const disminuir = () => {
-    setContador(contador - 1)
-    if (contador === 0) {
-      setContador(0)
+    const setRealStock = (qty) => { // Aumentar
+        if (qty <= available_quantity) {
+            setItemsQty(qty)
+        } 
     }
-  }
-  return (
-            <>
-            <Card style={{ width: '18rem', border: 'none' }}>
-                <Card.Body>
-                    <Card.Text>
-                        <small className="text-muted">Disponible: {available_quantity}</small>
-                    </Card.Text>
-                    <Button onClick={() => addItem(contador)} variant="primary">Agregar al carrito</Button>
-                </Card.Body>
-            </Card>
-           </>
-  )
+ 
+    const removeFromStock = (qty) => { // Disminuir
+        if (qty >= 0) {
+            setItemsQty(qty)
+        }
+    }
+
+    return(
+        <div>
+            <Button onClick={ () => removeFromStock (itemsQty - 1 ) } variant="primary">-</Button>           
+            <span style={{  margin: 10, fontSize: "1.2rem" }}>{itemsQty}</span>
+            <Button onClick={ () => setRealStock (itemsQty + 1 ) } variant="primary">+</Button> 
+            <div>
+                <small style={{ color: "#a1a1a1" }}>{available_quantity} disponibles</small>
+            </div>            
+        </div>
+    )
 }
 
 export default ItemCount

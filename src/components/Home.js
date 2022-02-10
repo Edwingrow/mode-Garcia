@@ -12,7 +12,7 @@ const Home = () => {
     let mounted = true
     setLoading(true)
 
-    getProducts('razer').then((item) => {
+    getProducts('PC Gamer').then((item) => {
       if (mounted) {
         setProductos(item.results)
         setTimeout(() => {

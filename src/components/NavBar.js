@@ -38,9 +38,7 @@ const NavBar = ({ categories }) => {
                             <Nav.Link href="#link">Contacto</Nav.Link>
                         </Nav>
                         <SearchWidget />
-                        <Nav >
-                            <Nav.Link href="#home"><CartWidget /></Nav.Link>
-                        </Nav>
+                        <Link to="/cart"> <CartWidget /></Link>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

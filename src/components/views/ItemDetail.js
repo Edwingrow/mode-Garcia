@@ -1,10 +1,10 @@
 import { Breadcrumb, Button, Card, Col, Container, Row } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
-import { useState} from 'react'
 import ItemCount from './ItemCount'
-
+import { useState, useContext } from 'react'
+import {CartContext} from '../../context/CartContext'
 const ItemDetail = ({ product }) => {
-
+  const { addItem } = useContext(CartContext);
   const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity } = product
   const [itemsQty, setItemsQty] = useState(0)
   return (
@@ -32,11 +32,6 @@ const ItemDetail = ({ product }) => {
                             <Row>
                                 <Col xs={7} className="product-info">
                                     <Col className="product-gallery">
-                                        <Col className="product-gallery-thumbnails">
-                                            <ol className="thumbnails-list list-unstyled">
-                                                {pictures.slice(0, 6).map(picture => { return (<li key={picture.id}> <img src={picture.secure_url} alt="" /></li>) })}
-                                            </ol>
-                                        </Col>
                                         <Col xs={10} className="product-gallery-featured">
                                             {pictures.length > 0 ? <img src={pictures[0].secure_url} alt="" /> : null}
                                         </Col>
@@ -46,9 +41,9 @@ const ItemDetail = ({ product }) => {
                                         <Col className="product-description mb-5" style={{ textAlign: 'left' }}>
                                             <h5 className="mt-3 mb-4">Lo que tenés que saber de este producto</h5>
                                             <dl className="row mb-5">
-                                                {attributes.slice(0, 8).map((attribute, index) => {
+                                                {attributes.slice(0, 8).map((attribute) => {
                                                   return (<>
-                                                    <dd className="col-sm-8" key={index}>{attribute.name}</dd>
+                                                    <dd className="col-sm-8" key={attribute.id}>{attribute.name}</dd>
                                                 <dt className="col-sm-4">{attribute.value_name}</dt>
                                                 </>)
                                                 })}
@@ -65,13 +60,13 @@ const ItemDetail = ({ product }) => {
                                     <p className="text-success"><i className="fa fa-credit-card"></i> 12x or  5x $ 5.00</p>
                                     <p className="mb-0"><i className="fa fa-truck"></i> Tipo de Garantia</p>
                                     <div className="text-muted mb-4"><small>{warranty}</small></div>
+                                    <label htmlFor="quant">Cantidad</label>
                                     <div className="mb-3">
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
-                                    </div>
-                                    
+                                    </div> 
+                                    <Button onClick={() => addItem(product, itemsQty)} variant="primary">Agregar al carrito</Button>
                                 </Col>
                             </Row>
-
                         </Card.Body>
                     </Card>
                 </Col>

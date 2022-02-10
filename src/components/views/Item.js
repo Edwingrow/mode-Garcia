@@ -9,7 +9,7 @@ const Item = ({ productos }) => {
   const Navigate = () => {
     navigate(`/productos/${productos.id}`)
   }
-  return (<Card style={{ width: '18rem' }}>
+  return (<Card style={{ width: '15rem' }}>
         <Card.Img style={{ marginTop: 10, height: '100px', with: '100%', objectFit: 'contain' }} variant="top" src={thumbnail} />
         <Card.Body>
             <Card.Title>{title}</Card.Title>
