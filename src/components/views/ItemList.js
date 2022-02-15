@@ -6,7 +6,7 @@ const ItemList = ({ products }) => {
   return (
     <Container>
       {
-        products.slice(0, 5).map((productos) => {
+        products.slice(0, 12).map((productos) => {
           return <Item productos={productos} key={productos.id} />
         })
     }

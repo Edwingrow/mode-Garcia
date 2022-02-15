@@ -191,6 +191,7 @@ body{
     position: absolute;
     left: 0;
     cursor: pointer;
+    
 }
 /*Footer------------------------------------------------------------------------------------------------------*/
 .footer {
@@ -209,5 +210,7 @@ body{
   bottom: 0;
   position: relative;
   width: 100%;  
+  margin-left: 0;
+  margin-right: 0;
 
 }

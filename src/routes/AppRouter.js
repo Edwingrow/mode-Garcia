@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout';
-import Home from '../components/Home'
+import Home from '../components/containers/Home';
 import NoPage from '../components/NoPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ItemDetailContainer from '../components/containers/ItemDetailContainer'
