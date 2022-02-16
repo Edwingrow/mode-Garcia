@@ -7,14 +7,16 @@ import ItemDetailContainer from '../components/containers/ItemDetailContainer'
 import Category from '../components/Category'
 import Footer from '../components/Footer';
 import CartPage from '../components/views/CartPages'
+import AddItem from '../components/views/AddItem';
 const AppRouter = () => {
   return (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />} >
             <Route index element={<Home />} />
-            <Route path="/productos/:id" element={<ItemDetailContainer />} />
-            <Route path="/category/:id" element={<Category />} />
+           <Route path="/productos/:id" element={<ItemDetailContainer />} />
+           <Route path="/category/:id" element={<Category />} />
+           <Route path="/additem" element={<AddItem />} />   
             <Route path="/cart" element={<CartPage />} /> 
             <Route path="*" element={<NoPage />} />
             </Route>

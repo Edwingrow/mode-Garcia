@@ -11,9 +11,6 @@ const ItemList = ({ products }) => {
         })
     }
     
-    {/* {  Este es el producto de Firestore
-      <Item productos={products} />
-    } */}
     </Container>
   )
 }

@@ -15,7 +15,6 @@ const Home = () => {
 
     getProducts('PC Gamer').then((item) => {
       if (mounted) {
-        setProductos(item.results)
         setTimeout(() => {
           setLoading(false)
         }, 3000)
@@ -25,11 +24,19 @@ const Home = () => {
   }, [])
   useEffect(()=>{
     const getFromFirebase = async () =>{
-      const qry = query(collection(db, "items"), where("categoryId", "==", "computadoras"))
+      const qry = collection(db, "items")
       const snapshot = await getDocs(qry)
-      snapshot.forEach((doc) => {
-        // setProductos({id: doc.id, ...doc.data()}) //se agregan a el estado productos
-        console.log(doc.data())
+      snapshot.forEach(doc =>{
+        const {title, description, price, url, category} = doc.data()
+        const producto = {
+          id: doc.id,
+          title: title,
+          description: description,
+          price: price,
+          url: url,
+          category: category
+        }
+        setProductos(productos => [...productos, producto])
       })
     }
     getFromFirebase()
