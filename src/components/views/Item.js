@@ -4,13 +4,13 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 const Item = ({ productos }) => {
-  const { title, price} = productos
+  const { title, price, url} = productos
   const navigate = useNavigate()
   const Navigate = () => {
     navigate(`/productos/${productos.id}`)
   }
   return (<Card style={{ width: '15rem' }}>
-        <Card.Img style={{ marginTop: 10, height: '100px', with: '100%', objectFit: 'contain' }} variant="top" src='../../assets/images/D_738272-MLA48066671769_102021-I.jpg' />
+        <Card.Img style={{ marginTop: 10, height: '100px', with: '100%', objectFit: 'contain' }} variant="top" src={url} />
         <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>
