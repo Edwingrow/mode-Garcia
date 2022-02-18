@@ -10,12 +10,15 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     let mounted = true
     setLoading(true)
-    const getProductFromFirebase = async () => {
+    const getProductFromFirebase =  () => {
       const docRef = doc(db, "items", id)
-      const docSnapshot = await getDoc(docRef)
-      console.log(docSnapshot.data())
+      const docSnapshot = getDoc(docRef)
+      docSnapshot
+      .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
+      .catch((error) => console.log(error))
+     
       if(mounted){
-        setProduct(docSnapshot.data())
+        
         setTimeout(()=>{
           setLoading(false)
         },3000)

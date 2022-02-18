@@ -11,7 +11,7 @@ const Checkout = () => {
     const [phone, setPhone] = useState('')
     const [emailValid, setEmailValid] = useState('')
     const [orderId, setOrderId] = useState("");
-
+    const [ success, setSuccess ] = useState(false);
     const generarOrden = (event) => {
         if(items.length ===0){
             alert("No hay productos en el carrito")
@@ -65,8 +65,12 @@ const Checkout = () => {
                 </Button>
                 }
             </Form>
-            
+            {
+                success ? <p>Orden de compra {orderId}</p> : null
+                
+            }
         </Container>
+        
     )
 };
 
