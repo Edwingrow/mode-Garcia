@@ -1,29 +1,31 @@
 import { useState, useEffect } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
-import {getCategory} from '../services/products';
 import ItemListContainer from './containers/ItemListContainer';
-
-const Category = () => {
+import { collection, getDocs, doc, getDoc} from 'firebase/firestore'
+import { db } from '../firestore/firebase'
+const Category = ({Category}) => {
     const [productos, setProductos] = useState([]);
     const [setLoading] = useOutletContext();
-    const { id } = useParams();
     useEffect(() => {
-        let mounted = true
-        setLoading(true)
-        if (typeof id !== 'undefined') {    
-            getCategory(id).then(items => {
-                if(mounted) {
-                    setProductos(items.results)
-
-                    setTimeout(() => {
-                      setLoading(false)
-                    }, 3000)
-                }
-              })          
+      let mounted = true
+      setLoading(true)
+      const getProductFromFirebase = async () => {
+        const qry = collection(db, "items")
+        const snapshot = await getDocs(qry)
+  
+        const docRef = doc(db, "items", Category)
+        const docSnapshot = await getDoc(docRef)
+        if(mounted){
+          setProductos(docSnapshot.data())
+          setTimeout(()=>{
+            setLoading(false)
+          },3000)
         }
-        return () => mounted = false;
-      }, [id])
-    
+      }
+      getProductFromFirebase()
+      return () => mounted = false
+    }
+      , [Category])
       return (
         <div>     
           <ItemListContainer products={productos} />

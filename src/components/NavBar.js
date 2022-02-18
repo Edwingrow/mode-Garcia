@@ -6,9 +6,10 @@ import CartWidget from './views/CartWidget'
 import logo from '../assets/images/mode-logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import SearchWidget from './SearchWidget'
-const NavBar = ({ categories }) => {
-    let filtrador = categories.filter((Element)=>{
-        if(Element.id === "MLA1648"|| Element.id ==="MLA1144" ||Element.id ==="MLA1051"  ){
+import Category from './Category'
+const NavBar = ({ productos }) => {
+    let filtrador = productos.filter((Element)=>{
+        if(Element.id === "MLA1648"|| Element.id ==="MLA1051"  ){
             return Element
         }
     })
@@ -26,11 +27,13 @@ const NavBar = ({ categories }) => {
                         <Nav>
                             <Nav.Link as={NavLink} to="/" activeclassname="active">Inicio</Nav.Link>
                             <NavDropdown title={"Categorias"} id="basic-nav-dropdown">
-                                {
-                                filtrador.map((category) => {
-                                    return (<NavDropdown.Item key={category.id} as={Link} to={`/category/${category.id}`}>{category.name}</NavDropdown.Item>)
+                            {
+                                productos.map((producto) => {
+                                    return (<NavDropdown.Item key={producto.id} as={Link} to={`/category/${producto.category}`}>{producto.name}</NavDropdown.Item>)
                                 })
                                 }
+
+                               
                             </NavDropdown>
                         </Nav>
                         <Nav>

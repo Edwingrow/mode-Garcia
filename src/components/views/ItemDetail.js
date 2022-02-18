@@ -5,8 +5,11 @@ import { useState, useContext } from 'react'
 import {CartContext} from '../../context/CartContext'
 const ItemDetail = ({ product }) => {
   const { addItem } = useContext(CartContext);
-  const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity } = product
+  const { title, description, price, sold_quantity, attributes, url, available_quantity } = product
   const [itemsQty, setItemsQty] = useState(1)
+  const [atributos, setAtributos] = useState(attributes)
+  let precioCuotas = price/6
+  let precioCuotas2 = precioCuotas.toFixed(3)
   return (
         <Container>
             <Row>
@@ -31,25 +34,24 @@ const ItemDetail = ({ product }) => {
                         <Card.Body className="store-body">
                             <Row>
                                 <Col xs={7} className="product-info">
-                                    <Col className="product-gallery">
-                                        <Col xs={10} className="product-gallery-featured">
-                                            {pictures.length > 0 ? <img src={pictures[0].secure_url} alt="" /> : null}
-                                        </Col>
-                                    </Col>
+                                    <img src={url}/>
                                     <Col className
                                     me="product-seller-recommended">
                                         <Col className="product-description mb-5" style={{ textAlign: 'left' }}>
                                             <h5 className="mt-3 mb-4">Lo que tenés que saber de este producto</h5>
-                                            <dl className="row mb-5">
-                                                {attributes.slice(0, 8).map((attribute) => {
-                                                  return (<>
-                                                    <dd className="col-sm-8" key={attribute.id}>{attribute.name}</dd>
-                                                <dt className="col-sm-4">{attribute.value_name}</dt>
-                                                </>)
-                                                })}
-                                            </dl>
-                                            <h2 className="mb-5">Descripción</h2>
-                                            {description}
+                                            <ol>
+                                                {
+                                                    atributos.map(atributo => {
+                                                        return <li key={atributo.id}>{atributo}</li>
+                                                    })
+                                                }
+                                            </ol>
+                                        </Col>
+                                        <Col className="product-description mb-5" style={{ textAlign: 'left' }}>
+                                            <h5 className="mt-3 mb-4">Lo que tenés que saber de este producto</h5>
+                                            <ol>
+                                               {description}
+                                            </ol>
                                         </Col>
                                     </Col>
                                 </Col>
@@ -57,9 +59,8 @@ const ItemDetail = ({ product }) => {
                                     <p className="last-sold text-muted"><small>{sold_quantity} vendidos</small></p>
                                     <h4 className="product-title mb-2">{title}</h4>
                                     <h2 className="product-price display-4">$ {price}</h2>
-                                    <p className="text-success"><i className="fa fa-credit-card"></i> 12x or  5x $ 5.00</p>
+                                    <p className="text-success"><i className="fa fa-credit-card"></i> 6x ${precioCuotas2} sin interés </p>
                                     <p className="mb-0"><i className="fa fa-truck"></i> Tipo de Garantia</p>
-                                    <div className="text-muted mb-4"><small>{warranty}</small></div>
                                     <label htmlFor="quant">Cantidad</label>
                                     <div className="mb-3">
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />

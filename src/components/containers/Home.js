@@ -1,6 +1,5 @@
 /* eslint-disable no-return-assign */
 import React, { useEffect, useState } from 'react'
-import { getProducts } from '../../services/products' // Api call
 import ItemListContainer from './ItemListContainer'
 import { useOutletContext } from 'react-router-dom'
 import { collection, getDocs } from 'firebase/firestore'
@@ -8,25 +7,14 @@ import {db} from '../../firestore/firebase'
 const Home = () => {
   const [productos, setProductos] = useState([])
   const [setLoading] = useOutletContext()
-
-  useEffect(() => {
+  useEffect(()=>{
     let mounted = true
     setLoading(true)
-
-    getProducts('PC Gamer').then((item) => {
-      if (mounted) {
-        setTimeout(() => {
-          setLoading(false)
-        }, 3000)
-      }
-    })
-    return () => (mounted = false)
-  }, [])
-  useEffect(()=>{
     const getFromFirebase = async () =>{
       const qry = collection(db, "items")
       const snapshot = await getDocs(qry)
-      snapshot.forEach(doc =>{
+     snapshot.forEach(doc =>{
+
         const {title, description, price, url, category} = doc.data()
         const producto = {
           id: doc.id,
@@ -36,10 +24,18 @@ const Home = () => {
           url: url,
           category: category
         }
-        setProductos(productos => [...productos, producto])
+        if (mounted) {
+          setTimeout(() => {
+            setProductos(productos => [...productos, producto])
+            setLoading(false)
+          }, 3000)
+        }
+        
       })
     }
+    
     getFromFirebase()
+    return () => (mounted = false)
   },[])
   return (
     <div>
