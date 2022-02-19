@@ -12,6 +12,7 @@ const Checkout = () => {
     const [emailValid, setEmailValid] = useState('')
     const [orderId, setOrderId] = useState("");
     const [ success, setSuccess ] = useState(false);
+    const [date, setDate] = useState(new Date());
     const generarOrden = (event) => {
         if(items.length ===0){
             alert("No hay productos en el carrito")
@@ -29,8 +30,9 @@ const Checkout = () => {
             return { id, title, price, total }
 
         })
-        const order = { byer, ordenCompra }
+        const dateTime = setDate(date.toLocaleString())
 
+        const order = { byer, ordenCompra,date }
         addDoc(collection(db, 'Orders'), order)
             .then(doc => {
                 setOrderId(doc.id)
