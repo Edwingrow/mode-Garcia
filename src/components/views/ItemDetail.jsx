@@ -10,7 +10,7 @@ const ItemDetail = ({ product }) => {
     const [itemsQty, setItemsQty] = useState(1)
 
     let precioCuotas = price / 6
-    let precioCuotas2 = precioCuotas.toFixed(1)
+    let precioCuotas2 = precioCuotas.toFixed(3)
     return (
         <Container>
             <Row>
