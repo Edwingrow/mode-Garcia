@@ -96,7 +96,7 @@ const Checkout = () => {
                         </>
                         :
                         <>
-                            <Container>
+                            <Container className='check'>
                                 <Form onSubmit={generarOrden} onChange={handleChange} >
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label>Ingresa Nombre</Form.Label>

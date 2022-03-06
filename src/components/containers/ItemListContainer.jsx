@@ -29,7 +29,7 @@ const ItemListContainer = () => {
           getDocs(queryCollection)
           .then(resp => setProductos(resp.docs.map(prod => ({ id: prod.id, ...prod.data() }))))
           setLoading(false)
-         }, 2000)
+         }, 1000)
         }
        
     }

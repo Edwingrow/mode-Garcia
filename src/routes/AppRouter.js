@@ -7,6 +7,7 @@ import Checkout from '../components/checkout/Checkout';
 import CartPage from '../components/views/CartPages'
 import NavBar from '../components/views/NavBar';
 import { Hero } from '../components/views/Hero';
+import Footer from '../components/views/Footer';
 const AppRouter = () => {
   return ( 
     <BrowserRouter>
@@ -20,6 +21,7 @@ const AppRouter = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path='*' element={<NoPage />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 };

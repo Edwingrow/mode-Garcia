@@ -83,6 +83,7 @@ body{
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-end;
+  margin-bottom : 10px;
 }
 /*Cart ------------------------------------------------------------------------------- */
 .cart{
@@ -94,6 +95,13 @@ body{
   padding-top: 160px;
   min-height: calc(100vh - 158px);
   text-align: center;
+}
+.check{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 15%;
 }
 
 /*Detalles de Item--------------------------------------------------------------------------------*/
@@ -179,29 +187,22 @@ body{
 }
 
 /*Footer------------------------------------------------------------------------------------------------------*/
-.footer {
-  margin-top: 2.5rem;
+
+.footer-final {
+  background-color: rgb(24, 24, 24);
+}
+.redes__sociales{
   display: flex;
   justify-content: center;
-  --tw-bg-opacity: 1;
-  background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 200;
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-  bottom: 0;
-  position: relative;
-  width: 100%;  
-
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 /* Hero ------------------------------------------------------------------------------------------------------*/
 .hero-container {
   display: grid;
   grid-template: 1fr 2fr 1fr / 0.5fr 2fr 0.5fr;
   height: 100%;
+  margin-bottom: 15%;
 }
 
 .hero-container__text-box {
