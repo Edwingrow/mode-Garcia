@@ -1,15 +1,13 @@
-import { useOutletContext, useParams } from 'react-router-dom'
+import {useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../views/ItemDetail'
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore'
-import { db } from '../../firestore/firebase'
+import {doc, getDoc, getFirestore } from 'firebase/firestore'
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null)
   const { id } = useParams()
-  const [setLoading] = useOutletContext()
   useEffect(() => {
     let mounted = true
-    setLoading(true)
+    const db = getFirestore()
     const getProductFromFirebase =  () => {
       const docRef = doc(db, "items", id)
       const docSnapshot = getDoc(docRef)
@@ -20,7 +18,6 @@ const ItemDetailContainer = () => {
       if(mounted){
         
         setTimeout(()=>{
-          setLoading(false)
         },3000)
       }
     }
