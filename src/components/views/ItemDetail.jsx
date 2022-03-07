@@ -8,7 +8,6 @@ const ItemDetail = ({ product }) => {
     const [goToCart, setGoToCart] = useState(false);
     const { title, description, price, sold_quantity, attributes, url, available_quantity } = product
     const [itemsQty, setItemsQty] = useState(1)
-
     let precioCuotas = price / 6
     let precioCuotas2 = precioCuotas.toFixed(3)
     return (

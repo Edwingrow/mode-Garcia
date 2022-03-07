@@ -34,7 +34,7 @@ const CartItem = () => {
                         </div>
                         <div className="col-lg-2 col-sm-2">
                             <h5>${
-                            item.qty * item.price}</h5>
+                            (item.qty * item.price).toFixed(3)}</h5>
                         </div>
                         <div className="col-lg-1 col-sm-1">
                             <button className="btn btn-outline-dark bg-gradient" onClick={() => deleteCartById(item.id)}>Eliminar</button>
