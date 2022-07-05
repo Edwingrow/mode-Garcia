@@ -36,7 +36,10 @@ export const  CartProvider = ({ children }) => {
         setItems([]);
     }
     const totalBuy = ()=>{
-        return items.map(item =>( item.price * item.qty).toFixed(3))
+        let suma
+        suma = items.map( item => item.price * item.qty)
+        return suma.reduce((a,b) => a+b,0)
+       
     }
 
     return (
